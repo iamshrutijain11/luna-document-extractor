@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "luna-document-extractor"
+version = "0.1.0"
+description = "Lightweight, offline PDF document extractor & parser for invoices, receipts, and warranties."
+readme = "README.md"
+authors = [
+    { name = "Shruti Jain", email = "shruti.jain@example.com" }
+]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+keywords = ["pdf", "extractor", "invoice", "receipt", "warranty", "parser", "offline"]
+requires-python = ">=3.10"
+dependencies = [
+    "pymupdf>=1.23.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+]
+
+[project.scripts]
+luna-extract = "luna_document_extractor.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/iamshrutijain11/luna-document-extractor"
+Repository = "https://github.com/iamshrutijain11/luna-document-extractor"
+Issues = "https://github.com/iamshrutijain11/luna-document-extractor/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
